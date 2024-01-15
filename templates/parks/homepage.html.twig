@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+ {% block body %}
+        <h1>
+        {{title}}: Homepage
+        </h1>
+                <table>
+                <thead class='table-head'>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Provincia
+                    </th>
+                    <th>
+                     Ecosistema
+                    </th>
+                    </thead>
+                    <tr>
+            {% for park in parks %}
+                    
+                    <td>
+                    <br>
+                    {{park.nombre}}
+                    </td>
+                    <td>
+                    <br>
+                    {{park.provincia}}
+                    </td>
+                    <td>
+                    <br>
+                    {{park.ecosistema}}
+                    </td>
+                    </tr>
+             {% endfor %}
+                </table>                
+        
+        {% endblock %}

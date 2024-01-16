@@ -1,8 +1,10 @@
 {% extends "base.html.twig" %}
-
+    {% block title %}
+        {{title}} | {{ parent() }}
+        {% endblock %}
  {% block body %}
         <h1>
-        {{title}}: Homepage
+        National Parks
         </h1>
                 <table>
                 <thead class='table-head'>

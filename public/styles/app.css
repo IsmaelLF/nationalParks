@@ -46,5 +46,17 @@ tr:nth-of-type(12){
 }
 
 a, a:hover, a:visited{
-    color:red;
+    color:yellow;
+}
+
+#nat-information{
+    color:crimson;
+}
+
+.nat-result{
+    color:aqua
+}
+
+.h2-info{
+    color:rgb(46, 224, 46)
 }

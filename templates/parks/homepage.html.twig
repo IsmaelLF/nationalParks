@@ -17,6 +17,9 @@
                     <th>
                      Ecosistema
                     </th>
+                    <th>
+                     Imagen
+                    </th>
                     </thead>
                     <tr>
             {% for park in parks %}
@@ -32,6 +35,9 @@
                     <td>
                     <br>
                     {{park.ecosistema}}
+                    </td>
+                    <td>
+                    {{park.fichero}}
                     </td>
                     </tr>
              {% endfor %}

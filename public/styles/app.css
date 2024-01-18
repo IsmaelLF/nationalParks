@@ -9,47 +9,89 @@ body{
     width: 99%;
     text-shadow: 1px 1px 0px grey;
 }
-table,th{
-    border: 2px solid gray;
-    border-collapse: collapse;
-}
-table{
-    width: 100%;
-}
-.table-head{
-    color:crimson;
-    font-style: italic;
-    text-shadow: none;
+
+div:nth-of-type(1){
+    box-shadow: 5px 3px 15px 2px grey;
+    background-color: grey;
+    color: white;
 }
 
-
-tr:nth-of-type(3) , tr:nth-of-type(4){
-    color:rgb(236, 53, 7);
+div:nth-of-type(1) a, div:nth-of-type(1) a:hover, div:nth-of-type(1) a:visited{
+    color: white;
+    text-decoration: none;
 }
-tr:nth-of-type(2) , tr:nth-of-type(5) {
-    color:rgb(193, 225, 238);
-}
-tr:nth-of-type(6) , tr:nth-of-type(7) {
-    color:rgb(89, 168, 241);
-}
-tr:nth-of-type(8), tr:nth-of-type(9), tr:nth-of-type(11){
-    color:rgb(121, 70, 70);
-}
-tr:nth-of-type(10) {
-    color:aquamarine;
+div:nth-of-type(3), div:nth-of-type(4){
+    color:white;
+    box-shadow: 5px 3px 15px 2px rgb(236, 53, 7);
+    background-color: rgb(236, 53, 7);
 }
 
-tr:nth-of-type(12){
-    color:rgb(115, 230, 115);
+div:nth-of-type(3) a, div:nth-of-type(3) a:hover, div:nth-of-type(3) a:visited,
+div:nth-of-type(4) a, div:nth-of-type(4) a:hover, div:nth-of-type(4) a:visited
+{
+    color: white;
+    text-decoration: none;
 }
 
-a, a:hover, a:visited{
-    color:yellow;
+div:nth-of-type(2), div:nth-of-type(5){
+    color:white;
+    background-color: rgb(193, 225, 238);
+    box-shadow: 5px 3px 15px 2px rgb(193, 225, 238);
+}
+div:nth-of-type(2) a, div:nth-of-type(2) a:hover, div:nth-of-type(2) a:visited,
+div:nth-of-type(5) a, div:nth-of-type(5) a:hover, div:nth-of-type(5) a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+div:nth-of-type(6) ,div:nth-of-type(7) {
+    color:white;
+    background-color: rgb(89, 168, 241);
+    box-shadow: 5px 3px 15px 2px rgb(89, 168, 241);
+}
+div:nth-of-type(6) a, div:nth-of-type(6) a:hover, div:nth-of-type(6) a:visited,
+div:nth-of-type(7) a, div:nth-of-type(7) a:hover, div:nth-of-type(7) a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+div:nth-of-type(8),div:nth-of-type(9),div:nth-of-type(11){
+    color:white;
+    background-color: rgb(250, 234, 4);
+    box-shadow: 5px 3px 15px 2px rgb(250, 234, 4);
+}
+div:nth-of-type(8) a, div:nth-of-type(8) a:hover, div:nth-of-type(8) a:visited,
+div:nth-of-type(9) a, div:nth-of-type(9) a:hover, div:nth-of-type(9) a:visited,
+div:nth-of-type(11) a, div:nth-of-type(11) a:hover, div:nth-of-type(11) a:visited{
+
+    color: white;
+    text-decoration: none;
+}
+div:nth-of-type(10) {
+    color:white;
+    background-color: aquamarine;
+    box-shadow: 5px 3px 15px 2px aquamarine;
+}
+div:nth-of-type(10) a, div:nth-of-type(12) a:hover, div:nth-of-type(12) a:visited{
+    color:white;
+    text-decoration: none;
+}
+
+div:nth-of-type(12){
+    color:white;
+    background-color: rgb(115, 230, 115);
+    box-shadow: 5px 3px 15px 2px rgb(115, 230, 115);
+}
+
+div:nth-of-type(12) a, div:nth-of-type(12) a:hover, div:nth-of-type(12) a:visited{
+    color:white;
+    text-decoration: none;
 }
 
 h1{
     text-align: center;
-    color:crimson
+    color:crimson;
+    text-shadow:crimson 1px 1px 5px;
 }
 
 .nat-result{
@@ -58,4 +100,28 @@ h1{
 
 .h2-info{
     color:rgb(46, 224, 46)
+}
+
+img{
+    height:10rem;
+    /* width:30%; */
+}
+
+div{
+    display: inline-flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    background-color: #3c3c3d;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    width: 33%;
+}
+
+div p {
+    width: 100%;
+}
+div img {
+    width: 80%;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
 }

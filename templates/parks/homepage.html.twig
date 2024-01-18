@@ -6,41 +6,24 @@
         <h1>
         National Parks
         </h1>
-                <table>
-                <thead class='table-head'>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        Provincia
-                    </th>
-                    <th>
-                     Ecosistema
-                    </th>
-                    <th>
-                     Imagen
-                    </th>
-                    </thead>
-                    <tr>
             {% for park in parks %}
                     
-                    <td>
-                    <br>
+                    <div>
+                    
+                    <p>
+                    <a href="showInfo/{{park.nombre}}">
                     {{park.nombre}}
-                    </td>
-                    <td>
-                    <br>
+                    </a>
+                    </p>
+                    <p>
+                    
                     {{park.provincia}}
-                    </td>
-                    <td>
-                    <br>
+                    </p>
+                    <p>
                     {{park.ecosistema}}
-                    </td>
-                    <td>
-                    {{park.fichero}}
-                    </td>
-                    </tr>
-             {% endfor %}
-                </table>                
+                    </p>
+                    <img src="/images/{{park.fichero}}"></img>
+                    </div>
+             {% endfor %}       
         
         {% endblock %}

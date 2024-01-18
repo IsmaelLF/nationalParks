@@ -84,26 +84,26 @@ class ParksController extends AbstractController{
         ]
         ];
 
-    #[Route('/')]
+    #[Route('/' , name:'app_homepage')]
     public function homepage() : Response{
         return $this->render('parks/homepage.html.twig',[
             'title' => 'Homepage',
-            'parks' => $this->parks
+            'parks' => $this->parks,
         ]);
 }
 
-#[Route('/showInfo/{data}')]
+#[Route('/showInfo/{data<[A-Za-záÁéÉíÍóÓúÚñ\-]+>}', name: 'app_showinfo')]
 
 public function showInfo($data = null){
     if($data){
-        $park =u(str_replace('-', ' ' , $data))->title(true);
+        $park =u(str_replace(' ', '' , $data))->title(true);
         }
         else{
             $park = 'You did not enter a search parameter';
         }
         return  $this->render('parks/showinfo.html.twig', [
             'title'=>'Show Info',
-            'park' =>$this->parks
+            'park' =>$park
         ]);
     }
 }

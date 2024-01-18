@@ -22,8 +22,8 @@ div:nth-of-type(1) a, div:nth-of-type(1) a:hover, div:nth-of-type(1) a:visited{
 }
 div:nth-of-type(3), div:nth-of-type(4){
     color:white;
-    box-shadow: 5px 3px 15px 2px rgb(236, 53, 7);
-    background-color: rgb(236, 53, 7);
+    box-shadow: 5px 3px 15px 2px crimson;
+    background-color: crimson;
 }
 
 div:nth-of-type(3) a, div:nth-of-type(3) a:hover, div:nth-of-type(3) a:visited,

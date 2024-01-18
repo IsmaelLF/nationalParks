@@ -7,11 +7,12 @@
         National Parks
         </h1>
             {% for park in parks %}
-                    
                     <div>
-                    
+                
                     <p>
-                    <a href="showInfo/{{park.nombre}}">
+                    <a href="{{path("app_showinfo", {
+                    slug: park.nombre|replace({" " :""})
+                })}}">
                     {{park.nombre}}
                     </a>
                     </p>
@@ -24,6 +25,7 @@
                     </p>
                     <img src="/images/{{park.fichero}}"></img>
                     </div>
+                    
              {% endfor %}       
         
         {% endblock %}

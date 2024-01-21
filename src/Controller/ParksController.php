@@ -92,28 +92,30 @@ class ParksController extends AbstractController{
         ]);
 }
 
-#[Route('/showInfo/{data<([A-Za-záÁéÉíÍóÓúüÜÚñ\- ]+)>}', name: 'app_showinfo', methods:["GET"])]
+#[Route('/showInfo/{data}', name: 'app_showinfo', methods:["GET"])]
 
-public function showInfo($data = null){
+public function showInfo($data = null)
+{
     $result = 'You did not enter a search parameter';
     $photo = null;
-    if($data){
+
+    if ($data) {
         foreach ($this->parks as $park) {
-        $parkName = u(str_replace(' ', '' , $park['nombre']))->title(true);
-        if(str_contains($parkName,  $data)){    
-        $result = $park['nombre'];
-            $photo = "/images/{$park['fichero']}";
-            break;
+            $parkName = u($park['nombre'])->title(true);
+            
+            if (stripos($parkName, $data) !== false) {
+                $result = $park['nombre'];
+                $photo = "/images/{$park['fichero']}";
+                break;
+            }
         }
     }
-    }
 
-
-        return  $this->render('parks/showinfo.html.twig', [
-            'title'=>'Show Info',
-            'result'=> $result,
-            'photo' => $photo,
-            'parks' =>$this->parks
-        ]);
-    }
+    return $this->render('parks/showinfo.html.twig', [
+        'title' => 'Show Info',
+        'result' => $result,
+        'photo' => $photo,
+        'parks' => $this->parks,
+    ]);
+}
 }

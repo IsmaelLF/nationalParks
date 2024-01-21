@@ -1,31 +1,23 @@
 {% extends "base.html.twig" %}
-    {% block title %}
-        {{title}} | {{ parent() }}
-        {% endblock %}
- {% block body %}
-        <h1>
-        National Parks
-        </h1>
-            {% for park in parks %}
-                    <div>
-                
-                    <p>
-                    <a href="{{path("app_showinfo", {
-                    slug: park.nombre|replace({" " :""})
-                })}}">
-                    {{park.nombre}}
-                    </a>
-                    </p>
-                    <p>
-                    
-                    {{park.provincia}}
-                    </p>
-                    <p>
-                    {{park.ecosistema}}
-                    </p>
-                    <img src="/images/{{park.fichero}}"></img>
-                    </div>
-                    
-             {% endfor %}       
-        
-        {% endblock %}
+
+{% block title %}
+    {{ title }} | {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>National Parks</h1>
+
+    {% for park in parks %}
+        <div>
+            <p>
+                <a href="{{ path("app_showinfo", { 'data': park.nombre}) }}">
+                    {{ park.nombre }}
+                </a>
+            </p>
+            <p>{{ park.provincia }}</p>
+            <p>{{ park.ecosistema }}</p>
+            <img src="/images/{{ park.fichero }}" alt="{{ park.nombre }}">
+        </div>
+    {% endfor %}
+
+{% endblock %}

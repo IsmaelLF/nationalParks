@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
-    {% block title %}
-        {{title}} | {{ parent() }}
-        {% endblock %}
+
+{% block title %}
+    {{ title }} | {{ parent() }}
+{% endblock %}
+
 {% block body %}
 
 <h1 id='nat-information'>National Parks: Information</h1>
@@ -9,17 +11,16 @@
 <h2 class='h2-info'>Here are your results: </h2>
 <br><br><br>
 
-    
 <h3>
-{{result}}
+    {{ result }}
 </h3>
 
-<img src={{photo}} alt={{result}}></img>
+<img src="{{ photo }}" alt="{{ result }}" />
 
-    
 <br><br><br><br><br>
 
 Here's the link to the homepage:
 <br><br>
-<a href='/' target="_noblank">Homepage</a>
+<a href='{{ path("app_homepage")}}' target="_blank">Homepage</a>
+
 {% endblock %}

@@ -118,4 +118,11 @@ public function showInfo($data = null)
         'parks' => $this->parks,
     ]);
 }
+
+
+    #[Route('/api/parks/{id}', name: 'app_api', methods: ['GET'])]
+
+    public function getParks(): Response{
+        return $this->json($this->parks);
+}
 }

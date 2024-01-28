@@ -6,21 +6,19 @@
 
 {% block body %}
 
-<h1 id='nat-information'>National Parks: Information</h1>
-<br><br><br><br><br>
+<h1 class='nat-information'>National Parks Information</h1>
+<div class='container-info'>
 <h2 class='h2-info'>Here are your results: </h2>
-<br><br><br>
-
-<h3>
+<br>
+<h3 class='h3-result'>
     {{ result }}
 </h3>
-
+<div class='showinfo-div'>
 <img src="{{ photo }}" alt="{{ result }}" />
-
-<br><br><br><br><br>
+<br><br>
 
 Here's the link to the homepage:
-<br><br>
 <a href='{{ path("app_homepage")}}'>Homepage</a>
-
+</div>
+</div>
 {% endblock %}

@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    <h1>National Parks</h1>
-
+    <h1><span>National Parks</span></h1>
+    <div class='container'>
     {% for park in parks %}
         <div>
             <p>
@@ -19,5 +19,5 @@
             <img src="/images/{{ park.fichero }}" alt="{{ park.nombre }}">
         </div>
     {% endfor %}
-
+</div>
 {% endblock %}

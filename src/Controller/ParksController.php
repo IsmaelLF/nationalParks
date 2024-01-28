@@ -101,8 +101,7 @@ public function showInfo($data = null)
 
     if ($data) {
         foreach ($this->parks as $park) {
-            $parkName = u($park['nombre'])->title(true);
-            
+            $parkName = str_replace(' ', '', u($park['nombre'])->title(true));
             if (stripos($parkName, $data) !== false) {
                 $result = $park['nombre'];
                 $photo = "/images/{$park['fichero']}";

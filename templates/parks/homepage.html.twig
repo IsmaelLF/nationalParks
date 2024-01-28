@@ -10,7 +10,7 @@
     {% for park in parks %}
         <div>
             <p>
-                <a href="{{ path("app_showinfo", { 'data': park.nombre}) }}">
+                <a href="{{ path("app_showinfo", { 'data': park.nombre|replace({' ': ''})}) }}">
                     {{ park.nombre }}
                 </a>
             </p>

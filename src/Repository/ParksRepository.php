@@ -21,18 +21,14 @@ class ParksRepository extends ServiceEntityRepository
         parent::__construct($registry, Parks::class);
     }
 
-//    /**
-//     * @return Parks[] Returns an array of Parks objects
-//     */
-//    public function findByExampleField($value): array
+
+//    public function findById($id)
 //    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
+//        return $this->createQueryBuilder('parkId')
+//            ->andWhere('parkId = :id')
+//            ->setParameter('id', $id)
 //            ->getQuery()
-//            ->getResult()
+//            ->getOneOrNulLResult()
 //        ;
 //    }
 

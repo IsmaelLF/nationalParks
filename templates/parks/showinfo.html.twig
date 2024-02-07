@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
+{# {% block title %}
     {{ title }} | {{ parent() }}
-{% endblock %}
+{% endblock %} #}
 
 {% block body %}
 
@@ -11,10 +11,10 @@
 <h2 class='h2-info'>Here are your results: </h2>
 <br>
 <h3 class='h3-result'>
-    {{ result }}
+    {{ park.nombre }}
 </h3>
 <div class='showinfo-div'>
-<img src="{{ photo }}" alt="{{ result }}" />
+<img src="{{ park.ficheiro }}" alt=" {{park.ficheiro}}" />
 <br><br>
 
 Here's the link to the homepage:

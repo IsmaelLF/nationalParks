@@ -6,18 +6,16 @@
 
 {% block body %}
     <h1><span>National Parks</span></h1>
-    <div class='container'>
+    <a class='container'>
     {% for park in parks %}
-        <div>
-            <p>
-                <a href="{{ path("app_showinfo", { 'data': park.nombre|replace({' ': ''})}) }}">
+        
+                <a href="{{ path("app_showinfo", { 'id': park.id}) }}">
                     {{ park.nombre }}
                 </a>
-            </p>
             <p>{{ park.provincia }}</p>
             <p>{{ park.ecosistema }}</p>
-            <img src="/images/{{ park.fichero }}" alt="{{ park.nombre }}">
-        </div>
+            <img src="/images/{{ park.ficheiro }}" alt="{{ park.nombre }}">
+        </a>
     {% endfor %}
 </div>
 {% endblock %}

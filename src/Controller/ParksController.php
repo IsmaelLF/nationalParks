@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Parks;
 use App\Service\GenerateData;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,4 +57,25 @@ public function showInfo( $data = null)
     public function getParks(): Response{
         return $this->json($this->parks->getArray());
 }
+
+
+
+    #[Route('/parks/new/')]
+
+   
+    public function newPark(EntityManagerInterface $entityManager) :Response{
+        $array = $this->parks->getArray();
+        $park = new Parks();
+        $num = rand(0,11);
+        $data = $array[$num];
+        $park->setNombre($data['nombre']);
+        $park->setProvincia($data['provincia']);
+        $park->setEcosistema($data['ecosistema']);
+        $park->setFicheiro($data['ficheiro']);
+        
+        $entityManager->persist($park);
+        $entityManager->flush();
+
+        return new Response(sprintf('Id: %d es %s, en %s, con clima %s e imagen %s', $park->getId(), $park->getNombre(), $park->getProvincia(), $park->getEcosistema(), $park->getFicheiro()));
+    }   
 }

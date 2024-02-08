@@ -4,54 +4,39 @@ namespace App\Controller;
 
 use App\Entity\Parks;
 use App\Repository\ParksRepository;
-use App\Service\GenerateData;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\component\string\u;
 
 class ParksController extends AbstractController
 {
 
-    public function __construct(private GenerateData $parks)
+    public function __construct(private ParksRepository $parks)
     {
     }
 
     #[Route('/', name: 'app_homepage')]
     public function homepage(ParksRepository $parksRepository): Response
     {
-        $parksRepository->findAll();
+        $parks = $parksRepository->findAll();
         return $this->render('parks/homepage.html.twig', [
             'title' => 'Homepage',
-            'parks' => $this->parks->getArray(),
+            'parks' => $parks,
         ]);
     }
 
     #[Route('/showInfo/{id}', name: 'app_showinfo', methods: ["GET"])]
-
-    public function showInfo($id, ParksRepository $parksRepository)
+    public function showInfo($id, ParksRepository $parksRepository): Response
     {
         $park = $parksRepository->find($id);
-        // dd($park);
-        // $result = 'You did not enter a search parameter';
-        // $photo = null;
-        // $park = $parksRepository->find($id);
 
-        // if ($data) {
-        //     // dd($park);
-        //     foreach ($this->parks->getArray() as $park) {
-        //         $parkName = str_replace(' ', '', u($park['nombre'])->title(true));
-        //         if (stripos($parkName, $data) !== false) {
-        //             $result = $park['nombre'];
-        //             $photo = "/images/{$park['fichero']}";
-        //             break;
-        //         }
-        //     }
-        // }
+        if (!$park) {
+            throw $this->createNotFoundException('Park not found');
+        }
 
         return $this->render('parks/showinfo.html.twig', [
-            'park' => $park
+            'park' => $park,
         ]);
     }
 
@@ -72,8 +57,7 @@ class ParksController extends AbstractController
     {
         $array = $this->parks->getArray();
         $park = new Parks();
-        $num = rand(0, 11);
-        $data = $array[$num];
+        $data = $array[rand(0,11)];
         $park->setNombre($data['nombre']);
         $park->setProvincia($data['provincia']);
         $park->setEcosistema($data['ecosistema']);
@@ -84,5 +68,14 @@ class ParksController extends AbstractController
 
         return new Response(sprintf('Id: %d es %s, en %s, con clima %s e imagen %s', $park->getId(), $park->getNombre(), $park->getProvincia(), $park->getEcosistema(), $park->getFicheiro()));
     }
+
+    #[Route('showList/{ecosistema}', name: 'app_ecosistema')]
+
+    public function ecosistemaList($ecosistema, ParksRepository $parksRepository){
+        $park = $parksRepository->findByEcosistema($ecosistema);
+        return $this->render('parks/showlist.html.twig', [
+            'park' => $park,
+        ]);
+    } 
 
 }

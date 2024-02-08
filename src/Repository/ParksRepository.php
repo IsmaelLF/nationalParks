@@ -21,6 +21,17 @@ class ParksRepository extends ServiceEntityRepository
         parent::__construct($registry, Parks::class);
     }
 
+    public function findByEcosistema($value): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.ecosistema LIKE :val')
+            ->setParameter('val', '%' . $value . '%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+
 
 //    public function findById($id)
 //    {
@@ -41,4 +52,5 @@ class ParksRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
 }

@@ -6,16 +6,24 @@
 
 {% block body %}
     <h1><span>National Parks</span></h1>
-    <a class='container'>
+    <p style='margin-bottom: 3rem;'>
+    <a href="{{path('app_ecosistema', { 'ecosistema': 'Maritimo'})}}" style="margin-right: 30px">Marítimo-Terrestre</a>
+    <a href="{{path('app_ecosistema', { 'ecosistema': 'Volcanico'})}}" style="margin-right: 30px">Volcánico</a>
+    <a href="{{path('app_ecosistema', { 'ecosistema': 'Humedal'})}}" style="margin-right: 30px">Humedal</a>
+    <a href="{{path('app_ecosistema', { 'ecosistema': 'Alta montaña'})}}" style="margin-right: 30px">Alta montaña</a>
+    <a href="{{path('app_ecosistema', { 'ecosistema': 'Media-'})}}" style="margin-right: 30px">Media-alta montaña</a>
+    </p>
+    <div class='container'>
     {% for park in parks %}
-        
+        <div>
+                
                 <a href="{{ path("app_showinfo", { 'id': park.id}) }}">
                     {{ park.nombre }}
                 </a>
             <p>{{ park.provincia }}</p>
             <p>{{ park.ecosistema }}</p>
             <img src="/images/{{ park.ficheiro }}" alt="{{ park.nombre }}">
-        </a>
+        </div>
     {% endfor %}
-</div>
+    </div>
 {% endblock %}

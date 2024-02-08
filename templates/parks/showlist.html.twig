@@ -7,12 +7,10 @@
 <div class='container-info'>
 <h2 class='h2-info'>Here are your results: </h2>
 <br>
-<h3 class='h3-result'>
-    {{ park.nombre }}
-</h3>
-<div class='showinfo-div'>
-<img src="{{ asset('images/' ~ park.ficheiro) }}" />
 
+{% for p in park %}
+    <h5 style="color:crimson;">{{p.nombre}}</h5> <h5 style="color:skyblue;">{{p.ecosistema}}</h5>
+{% endfor %}
 
 <br><br>
 
@@ -20,4 +18,5 @@ Here's the link to the homepage:
 <a href='{{ path("app_homepage")}}'>Homepage</a>
 </div>
 </div>
+
 {% endblock %}

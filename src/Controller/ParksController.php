@@ -32,7 +32,7 @@ class ParksController extends AbstractController
         $park = $parksRepository->find($id);
 
         if (!$park) {
-            throw $this->createNotFoundException('Park not found');
+            throw $this->createNotFoundException('Error 404: Park not found');
         }
 
         return $this->render('parks/showinfo.html.twig', [
